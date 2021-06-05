@@ -1,0 +1,25 @@
+<h1> Dashboard Route </h1>
+<div>
+<form #form="ngForm" (ngSubmit)="clickMe(form.value)" >
+
+    <div class=" form-group my-4"    >
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" placeholder="*name"  ngModel >
+    </div>
+    <div class=" form-group my-4"  >
+        <label >E-mail</label>
+        <input type="email" name="email" class="form-control" placeholder="*E-mail"  ngModel  >
+    </div>
+    <div class=" form-group my-4"  >
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" placeholder="*password" ngModel  >
+    </div>
+    <div class=" form-group my-4"  >
+        <label> Confirm Password</label>
+        <input type="password" name=" Confirm password" class="form-control" placeholder="*Confirm password" ngModel  >
+    </div>
+
+    <button  type="submit" class="btn btn-danger btn-lg my-4 " >Register</button>
+
+</form>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+
+  <h1> Blogs </h1>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="form" name="blogForm">
+
+    <div class="form-group my-4">
+      <label for="title">Title</label>
+      <div style="color: red;">
+        <input  type="text" name="title" class="form-control" placeholder="*Blog Title" formControlName="title" />
+        <ul class="help-block">
+          <li *ngIf="form.controls.title.errors?.required && form.controls.title.dirty">This field is required</li>
+          <li
+            *ngIf="(form.controls.title.errors?.minlength || form.controls.title.errors?.maxlength && form.controls.title.dirty)">
+            minimum charachters:5 , Maximum charachters: 50 </li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-group my-4">
+      <label for="body">Body</label>
+      <div style="color: red;">
+        <textarea #a1 name="body" rows="8" cols="80" placeholder="*Body" class="form-control"
+          formControlName="body"></textarea>
+        <ul class="help-block">
+          <li *ngIf="form.controls.body.errors?.required && form.controls.body.dirty">This field is required</li>
+          <li
+            *ngIf="(form.controls.body.errors?.minlength || form.controls.body.errors?.maxlength && form.controls.body.dirty)">
+            minimum charachters: 5 , Maximum charachters : 500</li>
+        </ul>
+      </div>
+    </div>
+    <button (click)="onSubmit()" [disabled]="!form.valid" type="button"
+      class="btn btn-warning btn-lg">Post</button>
+    <button type="button" class="btn btn-danger btn-lg mx-4">New</button>
+  </form>
+</div>
+
+
